@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="main">
+        <div class="container flex-column">
+            <section class="section-hello">
+                <h1 class="header-page">Добро пожаловать</h1>
+            </section>
+        </div>
+
+        <div class="container flex-column">
+            <section class="section-parameters flex-column">
+                <h2 class="section-parameters-header">Введите данные</h2>
+
+                <h3 class="section-parameters-subtitle display-none">Введите имя</h3>
+                <input type="text" placeholder="Введите имя" min="0" class="input display-none" id="firstUser">
+
+                <h3 class="section-parameters-subtitle">Введите рост</h3>
+                <input type="number" placeholder="В сантиметрах" min="0" class="input" id="heightFirstUser">
+
+                <h3 class="section-parameters-subtitle">Введите вес</h3>
+                <input type="number" placeholder="В кг." min="0" class="input" id="weightFirstUser">
+
+                <div>
+                    <input type="checkbox" id="checkboxSecondUser">
+                    <label for="checkboxSecondUser">Добавить 2 человека</label>
+                </div>
+
+                <button id="show-result">Показать</button>
+            </section>
+        </div>
+
+        <div class="container">
+            <section class="section-output">
+                <h2 class="section-output-text" id="section-output-text"></h2>
+            </section>
+        </div>
+    </main>
+    <script src="start.js"></script>
+</body>
+</html>
