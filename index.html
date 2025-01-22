@@ -17,14 +17,20 @@
             <section class="section-parameters flex-column">
                 <h2 class="section-parameters-header">Введите данные</h2>
 
-                <h3 class="section-parameters-subtitle display-none">Введите имя</h3>
-                <input type="text" placeholder="Введите имя" min="0" class="input display-none" id="firstUser">
+                <div class="flex-row">
+                    <article class="flex-column" id="articleFirstUser">
+                        <h3 class="section-parameters-subtitle display-none">Введите имя</h3>
+                        <input type="text" placeholder="Введите имя" min="0" class="input display-none" id="firstUser">
 
-                <h3 class="section-parameters-subtitle">Введите рост</h3>
-                <input type="number" placeholder="В сантиметрах" min="0" class="input" id="heightFirstUser">
+                        <h3 class="section-parameters-subtitle">Введите рост</h3>
+                        <input type="number" placeholder="В сантиметрах" min="0" class="input" id="heightFirstUser">
 
-                <h3 class="section-parameters-subtitle">Введите вес</h3>
-                <input type="number" placeholder="В кг." min="0" class="input" id="weightFirstUser">
+                        <h3 class="section-parameters-subtitle">Введите вес</h3>
+                        <input type="number" placeholder="В кг." min="0" class="input" id="weightFirstUser">
+                    </article>
+                    <article id="articleSecondUser"></article>
+                </div>
+
 
                 <div>
                     <input type="checkbox" id="checkboxSecondUser">

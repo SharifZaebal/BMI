@@ -9,8 +9,7 @@
 body {
     font-family: 'Fira Sans', sans-serif;
 
-    background: rgb(9,8,103);
-    background: linear-gradient(343deg, rgba(9,8,103,1) 12%, rgba(219,68,68,1) 88%);
+    background: #4143dd;
 
     color: white;
 
@@ -76,4 +75,22 @@ h3 {
 
 .section-output-text {
     font-size: 30px;
+}
+
+#show-result {
+    background-color: transparent;
+    border: 3px solid white;
+    color: white;
+    cursor: pointer;
+    outline: none;
+
+    padding: 15px;
+    margin: 30px 0;
+
+    font-size: 30px;
+}
+
+#show-result:hover {
+    background-color: black;
+    transition: 1s;
 }

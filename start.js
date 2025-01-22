@@ -29,38 +29,68 @@ let lastUser = {
     height: null,
     mass: null,
 }
-let checkboxStatus = false
+let checkboxStatus = true
+let flexRow = document.querySelector('.flex-row').style
+
+let articleSecondUser = document.getElementById('articleSecondUser')
 
 const output = document.getElementById('section-output-text')
 
 document.getElementById('show-result').addEventListener('click', () => {
-    let result
+    let result = null
 
-    firstUser.name = String(document.getElementById("firstUser").value)
-    firstUser.height = Number(document.getElementById("heightFirstUser").value)
-    firstUser.mass = Number(document.getElementById("weightFirstUser").value)
+    if (checkboxStatus) {
+        firstUser.name = String(document.getElementById("firstUser").value)
+        firstUser.height = Number(document.getElementById("heightFirstUser").value)
+        firstUser.mass = Number(document.getElementById("weightFirstUser").value)
 
-    result = firstUser.mass / ((firstUser.height/100)**2)
+        result = firstUser.mass / ((firstUser.height/100)**2)
 
-    result = result.toFixed(1)
+        result = result.toFixed(1)
 
-    return output.innerText = `${firstUser.name} при росте: ${firstUser.height}см., и массе ${firstUser.mass}кг., ваш индекс массы тела составляет ${result}`
+        return output.innerText = `${firstUser.name} при росте: ${firstUser.height}см., и массе ${firstUser.mass}кг., ваш индекс массы тела составляет ${result}`
+    } else {
+        firstUser.name = String(document.getElementById("firstUser").value)
+        firstUser.height = Number(document.getElementById("heightFirstUser").value)
+        firstUser.mass = Number(document.getElementById("weightFirstUser").value)
+
+        lastUser.name = String(document.getElementById("secondUser").value)
+        lastUser.height = Number(document.getElementById("heightSecondUser").value)
+        lastUser.mass = Number(document.getElementById("weightSecondUser").value)
+
+        let userOne = Number(firstUser.mass / ((firstUser.height/100)**2)).toFixed(1)
+        let userTwo = Number(lastUser.mass / ((lastUser.height/100)**2)).toFixed(1)
+
+        if (userOne > userTwo) {
+            return output.innerText = `${firstUser.name} с ростом: ${firstUser.height}см., весом: ${firstUser.mass}кг., и BMI: ${userOne}, имеет больший индекс массы тела, чем ${lastUser.name} с ростом: ${lastUser.height}см., весом: ${lastUser.mass}кг., и BMI: ${userTwo}`
+        } else {
+            return output.innerText = `${lastUser.name} с ростом: ${lastUser.height}см., весом: ${lastUser.mass}кг., и BMI: ${userTwo}, имеет больший индекс массы тела, чем ${firstUser.name} с ростом: ${firstUser.height}см., весом: ${firstUser.mass}кг., и BMI: ${userOne}`
+        }
+    }
 })
 
 document.getElementById('checkboxSecondUser').addEventListener('click', () => {
     if (checkboxStatus) {
+        articleSecondUser.innerHTML = '<h3 class="section-parameters-subtitle display-none">Введите имя</h3> ' +
+            '<input type="text" placeholder="Введите имя" min="0" class="input display-none" id="secondUser">' +
+            '<h3 class="section-parameters-subtitle">Введите рост</h3>\n' +
+            '<input type="number" placeholder="В сантиметрах" min="0" class="input" id="heightSecondUser">\n' +
+            '<h3 class="section-parameters-subtitle">Введите вес</h3>\n' +
+            '<input type="number" placeholder="В кг." min="0" class="input" id="weightSecondUser">'
+
+        flexRow.cssText = `
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center; 
+        `
+        document.getElementById('articleFirstUser').style.cssText = `margin-right: 10px`
+
         checkboxStatus = false
-        console.log(checkboxStatus)
     } else {
+        articleSecondUser.textContent = ''
+        flexRow.cssText = ``
+
         checkboxStatus = true
-        console.log(checkboxStatus)
     }
 })
-
-// document.getElementById("firstUser").value,
-// document.getElementById("heightFirstUser").value,
-// document.getElementById("weightFirstUser").value,
-
-// document.getElementById("lastUser").value,
-// document.getElementById("heightLastUser").value,
-// document.getElementById("weightLastUser").value,
